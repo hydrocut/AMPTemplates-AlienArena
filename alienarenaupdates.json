@@ -1,0 +1,43 @@
+[
+    {
+        "UpdateStageName": "Script d'installation",
+        "UpdateSourcePlatform": "Linux",
+        "UpdateSource": "FetchURL",
+        "UpdateSourceData": "https://raw.githubusercontent.com/hydrocut/AMPTemplates-AlienArena/main/scripts/installer-alienarena.sh",
+        "UpdateSourceArgs": "installer-alienarena.sh",
+        "UpdateSourceTarget": "{{$FullBaseDir}}",
+        "UnzipUpdateSource": false,
+        "OverwriteExistingFiles": true,
+        "SkipOnFailure": false
+    },
+    {
+        "UpdateStageName": "Script de lancement",
+        "UpdateSourcePlatform": "Linux",
+        "UpdateSource": "FetchURL",
+        "UpdateSourceData": "https://raw.githubusercontent.com/hydrocut/AMPTemplates-AlienArena/main/scripts/lancer-alienarena.sh",
+        "UpdateSourceArgs": "lancer-alienarena.sh",
+        "UpdateSourceTarget": "{{$FullBaseDir}}",
+        "UnzipUpdateSource": false,
+        "OverwriteExistingFiles": true,
+        "SkipOnFailure": false
+    },
+    {
+        "UpdateStageName": "Modele des reglages (AMP_reglages-alienarena.txt)",
+        "UpdateSourcePlatform": "All",
+        "UpdateSource": "FetchURL",
+        "UpdateSourceData": "https://raw.githubusercontent.com/hydrocut/AMPTemplates-AlienArena/main/scripts/AMP_reglages-alienarena.txt",
+        "UpdateSourceArgs": "AMP_reglages-alienarena.txt",
+        "UpdateSourceTarget": "{{$FullBaseDir}}",
+        "UnzipUpdateSource": false,
+        "OverwriteExistingFiles": true,
+        "SkipOnFailure": false
+    },
+    {
+        "UpdateStageName": "Telechargement d'Alien Arena et compilation du serveur dedie (environ 1,2 Go)",
+        "UpdateSourcePlatform": "Linux",
+        "UpdateSource": "Executable",
+        "UpdateSourceData": "/bin/bash",
+        "UpdateSourceArgs": "\"{{$FullBaseDir}}installer-alienarena.sh\" \"{{$FullBaseDir}}\"",
+        "SkipOnFailure": false
+    }
+]

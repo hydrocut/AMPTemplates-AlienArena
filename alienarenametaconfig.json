@@ -1,0 +1,8 @@
+[
+    {
+        "ConfigFile": "reglages-alienarena.txt",
+        "ConfigType": "template",
+        "AutoMap": true,
+        "ConfigFileTemplate": "alienarena/AMP_reglages-alienarena.txt"
+    }
+]

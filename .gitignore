@@ -1,0 +1,16 @@
+# Ce depot ne contient que le template : le jeu (source et donnees) est telecharge depuis
+# github.com/alienarena/alienarena a chaque Update, sur le serveur. Rien de ce qui suit ne doit y entrer.
+alienarena/
+jeu/
+jeu.nouveau/
+.installation/
+donnees/
+alienarena-ded
+reglages-alienarena.txt
+cartes-disponibles.txt
+*.bsp
+*.log
+__pycache__/
+
+# Notes internes de TeamKit (essais, etapes), pas dans le depot public
+FAISABILITE.md

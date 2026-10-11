@@ -1,0 +1,9 @@
+[
+    {
+        "Protocol": "UDP",
+        "Port": 27910,
+        "Ref": "GamePort",
+        "Name": "Port du jeu",
+        "Description": "Seul port a ouvrir, en UDP (jeu, liste publique et RCON). 27910 est le port par defaut d'Alien Arena (PORT_SERVER, qcommon.h) : un joueur qui tape seulement l'IP arrive dessus. Sur un autre port, il faut taper IP:port."
+    }
+]

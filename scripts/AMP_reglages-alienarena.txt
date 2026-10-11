@@ -1,0 +1,43 @@
+# reglages-alienarena.txt - ECRIT PAR AMP a chaque demarrage, a partir de AMP_reglages-alienarena.txt.
+# Lu par lancer-alienarena.sh, jamais par le jeu : change les reglages dans l'onglet
+# Configuration d'AMP. Pour un reglage en plus, ecris-le dans donnees/cor-games/arena/perso.cfg.
+# Joueurs maximum : volontairement absent (AMP ne remplace pas $MaxUsers dans ce fichier) ;
+# AMP le donne au lanceur sur la ligne de commande.
+hostname={{hostname}}
+motd={{motd}}
+maxspectators={{maxspectators}}
+sv_public={{sv_public}}
+password={{password}}
+rcon_password={{rcon_password}}
+admin={{admin}}
+website={{website}}
+allow_download={{allow_download}}
+mode={{mode}}
+map={{map}}
+sv_maplist={{sv_maplist}}
+timelimit={{timelimit}}
+fraglimit={{fraglimit}}
+warmuptime={{warmuptime}}
+g_spawnprotect={{g_spawnprotect}}
+armes={{armes}}
+vampire={{vampire}}
+regeneration={{regeneration}}
+quickweap={{quickweap}}
+playerspeed={{playerspeed}}
+low_grav={{low_grav}}
+sv_joustmode={{sv_joustmode}}
+grapple={{grapple}}
+anticamp={{anticamp}}
+camptime={{camptime}}
+tir_allie={{tir_allie}}
+armes_restent={{armes_restent}}
+munitions_infinies={{munitions_infinies}}
+degats_chute={{degats_chute}}
+reapparition_forcee={{reapparition_forcee}}
+g_callvote={{g_callvote}}
+g_mapvote={{g_mapvote}}
+g_autobalance={{g_autobalance}}
+bots={{bots}}
+sv_botkickthreshold={{sv_botkickthreshold}}
+skill={{skill}}
+bots_parlent={{bots_parlent}}

@@ -1,0 +1,612 @@
+[
+    {
+        "DisplayName": "Nom du serveur",
+        "Category": "Alien Arena:sports_esports",
+        "Subcategory": "Serveur:dns:1",
+        "Description": "Le nom affiché dans la liste des serveurs du jeu (hostname). 63 caractères au plus. Codes couleur possibles : ^1 rouge, ^2 vert, ^3 jaune, ^4 bleu, ^5 cyan, ^6 magenta, ^7 blanc, ^0 noir. Le jeu n'affiche que l'ASCII : les accents sont remplacés au démarrage (é devient e, — devient -), le guillemet droit \" devient ', le point-virgule une virgule, l'antislash une barre /.",
+        "Keywords": "nom,serveur,hostname,titre,couleur",
+        "FieldName": "hostname",
+        "InputType": "text",
+        "ParamFieldName": "hostname",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "[FR] TeamKit - Alien Arena",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Message d'accueil",
+        "Category": "Alien Arena:sports_esports",
+        "Subcategory": "Serveur:dns:1",
+        "Description": "Affiché au milieu de l'écran de chaque joueur qui arrive (fichier motd du jeu). Coupé en lignes de 40 caractères au plus ; tape | pour forcer un retour à la ligne. 500 caractères au plus. Vide = pas de message. Mêmes remplacements que pour le nom (le jeu n'affiche que l'ASCII).",
+        "Keywords": "accueil,bienvenue,motd,message",
+        "FieldName": "motd",
+        "InputType": "text",
+        "ParamFieldName": "motd",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "Bienvenue sur le serveur francophone TeamKit !|Heberge gratuitement par teamkit.fr|Discord : discord.gg/EuAjGMYPHY",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Joueurs maximum",
+        "Category": "Alien Arena:sports_esports",
+        "Subcategory": "Serveur:dns:1",
+        "Description": "Places sur le serveur (maxclients). Attention : les bots prennent aussi une place chacun, comme les spectateurs.",
+        "Keywords": "joueurs,places,slots,max,maxclients",
+        "FieldName": "$MaxUsers",
+        "InputType": "number",
+        "ParamFieldName": "maxclients",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "16",
+        "MinValue": "2",
+        "MaxValue": "32",
+        "Suffix": "joueurs",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Spectateurs maximum",
+        "Category": "Alien Arena:sports_esports",
+        "Subcategory": "Serveur:dns:1",
+        "Description": "Nombre de joueurs qui peuvent regarder sans jouer en même temps (maxspectators). Ils comptent dans les joueurs maximum.",
+        "Keywords": "spectateurs,maxspectators,regarder",
+        "FieldName": "maxspectators",
+        "InputType": "number",
+        "ParamFieldName": "maxspectators",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "4",
+        "MinValue": "0",
+        "MaxValue": "32",
+        "Suffix": "spectateurs",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Liste publique des serveurs",
+        "Category": "Alien Arena:sports_esports",
+        "Subcategory": "Serveur:dns:1",
+        "Description": "Oui : le serveur s'annonce aux serveurs maîtres officiels (master.alienarena.org et master2.alienarena.org) et apparaît dans la liste du jeu (Multijoueur > Rejoindre un serveur). Non : il n'apparaît nulle part ; on entre en tapant connect IP:port dans la console du jeu.",
+        "Keywords": "liste,public,master,annonce,internet,sv_public",
+        "FieldName": "sv_public",
+        "InputType": "enum",
+        "ParamFieldName": "sv_public",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "1",
+        "EnumValues": {
+            "1": "Oui, annoncé sur la liste publique du jeu",
+            "0": "Non, serveur privé (connexion par IP)"
+        }
+    },
+    {
+        "DisplayName": "Mot de passe pour entrer",
+        "Category": "Alien Arena:sports_esports",
+        "Subcategory": "Serveur:dns:1",
+        "Description": "Vide = serveur ouvert à tous. Sinon, chaque joueur le tape dans la console du jeu (password le_mot_de_passe) avant de se connecter. Les bots n'en ont pas besoin. 63 caractères au plus, sans espace, accent, guillemet, point-virgule ni antislash, et pas le mot none (le jeu le lit comme « pas de mot de passe ») : sinon le serveur refuse de démarrer et le dit dans la console.",
+        "Keywords": "mot de passe,password,prive",
+        "FieldName": "password",
+        "InputType": "password",
+        "ParamFieldName": "password",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Mot de passe RCON",
+        "Category": "Alien Arena:sports_esports",
+        "Subcategory": "Administration:admin_panel_settings:2",
+        "Description": "Pour administrer depuis le jeu : rcon_password le_mot_de_passe dans la console du jeu, puis rcon status, rcon kick 3, rcon map ctf-frost... Vide = RCON désactivé ; la console d'AMP reste administratrice dans tous les cas. Choisis-le long : qui le connaît contrôle tout le serveur. Il est masqué (***) dans la console d'AMP. 63 caractères au plus, sans espace, accent, guillemet, point-virgule ni antislash.",
+        "Keywords": "rcon,admin,administrateur,mot de passe,rcon_password",
+        "FieldName": "rcon_password",
+        "InputType": "password",
+        "ParamFieldName": "rcon_password",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Administrateur affiché",
+        "Category": "Alien Arena:sports_esports",
+        "Subcategory": "Administration:admin_panel_settings:2",
+        "Description": "Le nom de l'administrateur montré dans les informations du serveur, dans la liste du jeu (Admin). 63 caractères au plus. Vide = rien.",
+        "Keywords": "admin,administrateur,contact",
+        "FieldName": "admin",
+        "InputType": "text",
+        "ParamFieldName": "admin",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "TeamKit",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Site web affiché",
+        "Category": "Alien Arena:sports_esports",
+        "Subcategory": "Administration:admin_panel_settings:2",
+        "Description": "L'adresse montrée dans les informations du serveur, dans la liste du jeu (Website). 63 caractères au plus. Vide = rien.",
+        "Keywords": "site,web,website,adresse",
+        "FieldName": "website",
+        "InputType": "text",
+        "ParamFieldName": "website",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "https://teamkit.fr",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Téléchargement des cartes ajoutées",
+        "Category": "Alien Arena:sports_esports",
+        "Subcategory": "Administration:admin_panel_settings:2",
+        "Description": "Coché : un joueur à qui il manque une carte ajoutée au serveur la télécharge en se connectant (allow_download). Les cartes officielles sont déjà chez tous les joueurs.",
+        "Keywords": "telechargement,download,cartes,allow_download",
+        "FieldName": "allow_download",
+        "InputType": "checkbox",
+        "ParamFieldName": "allow_download",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "1",
+        "EnumValues": {
+            "False": "0",
+            "True": "1"
+        }
+    },
+    {
+        "DisplayName": "Mode de jeu",
+        "Category": "Alien Arena:sports_esports",
+        "Subcategory": "Partie:flag:3",
+        "Description": "Les modes du menu du jeu. Chaque mode a ses cartes : dm- pour le match à mort (seul, en équipes, ou en duel), ctf- pour la capture du drapeau, tac- pour le tactique. Rotation vide = toutes les cartes du mode.",
+        "Keywords": "mode,ctf,deathmatch,duel,tactical,equipe,tdm",
+        "FieldName": "mode",
+        "InputType": "enum",
+        "ParamFieldName": "mode",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "dm",
+        "EnumValues": {
+            "dm": "Match à mort, chacun pour soi (deathmatch)",
+            "tdm": "Match à mort en équipes (team deathmatch)",
+            "ctf": "Capture du drapeau (CTF, cartes ctf-)",
+            "tac": "Tactique : humains contre martiens, détruire la base adverse (cartes tac-)",
+            "duel": "Duel : un contre un, les autres attendent leur tour"
+        }
+    },
+    {
+        "DisplayName": "Carte de départ",
+        "Category": "Alien Arena:sports_esports",
+        "Subcategory": "Partie:flag:3",
+        "Description": "La première carte au démarrage, par exemple dm-deathray ou ctf-frost. Vide = la première de la rotation. Cartes installées : fichier cartes-disponibles.txt de l'instance (les 20 cartes officielles, plus celles ajoutées). Carte introuvable = la première de la rotation, avec un message dans la console.",
+        "Keywords": "carte,map,depart,demarrage",
+        "FieldName": "map",
+        "InputType": "text",
+        "ParamFieldName": "map",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Rotation des cartes",
+        "Category": "Alien Arena:sports_esports",
+        "Subcategory": "Partie:flag:3",
+        "Description": "Les cartes jouées l'une après l'autre, séparées par des virgules ou des espaces (sv_maplist). Vide = toutes les cartes installées du mode choisi (dm-, ctf- ou tac-), dans l'ordre de la liste officielle du jeu (arena/maps.lst), puis les cartes ajoutées. Une carte introuvable est retirée, avec un message dans la console.",
+        "Keywords": "rotation,cartes,maps,maplist,sv_maplist,cycle",
+        "FieldName": "sv_maplist",
+        "InputType": "text",
+        "ParamFieldName": "sv_maplist",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Durée d'une carte",
+        "Category": "Alien Arena:sports_esports",
+        "Subcategory": "Partie:flag:3",
+        "Description": "En minutes (timelimit) ; ensuite, carte suivante de la rotation. 0 = pas de limite de temps.",
+        "Keywords": "temps,duree,timelimit,minutes",
+        "FieldName": "timelimit",
+        "InputType": "number",
+        "ParamFieldName": "timelimit",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "20",
+        "MinValue": "0",
+        "MaxValue": "999",
+        "Suffix": "minutes",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Score pour finir la carte",
+        "Category": "Alien Arena:sports_esports",
+        "Subcategory": "Partie:flag:3",
+        "Description": "Points qui terminent la carte (fraglimit) : éliminations, ou captures du drapeau en CTF. 0 = pas de limite.",
+        "Keywords": "score,frags,fraglimit,points,captures",
+        "FieldName": "fraglimit",
+        "InputType": "number",
+        "ParamFieldName": "fraglimit",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "20",
+        "MinValue": "0",
+        "MaxValue": "9999",
+        "Suffix": "points",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Échauffement",
+        "Category": "Alien Arena:sports_esports",
+        "Subcategory": "Partie:flag:3",
+        "Description": "Secondes d'échauffement avant le début de chaque partie (warmuptime). 0 = la partie commence tout de suite.",
+        "Keywords": "echauffement,warmup,warmuptime,attente",
+        "FieldName": "warmuptime",
+        "InputType": "number",
+        "ParamFieldName": "warmuptime",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "30",
+        "MinValue": "0",
+        "MaxValue": "300",
+        "Suffix": "secondes",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Protection à l'apparition",
+        "Category": "Alien Arena:sports_esports",
+        "Subcategory": "Partie:flag:3",
+        "Description": "Secondes d'invulnérabilité juste après chaque apparition (g_spawnprotect).",
+        "Keywords": "protection,spawn,invulnerable,g_spawnprotect",
+        "FieldName": "g_spawnprotect",
+        "InputType": "number",
+        "ParamFieldName": "g_spawnprotect",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "2",
+        "MinValue": "0",
+        "MaxValue": "10",
+        "Suffix": "secondes",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Tir allié",
+        "Category": "Alien Arena:sports_esports",
+        "Subcategory": "Partie:flag:3",
+        "Description": "Modes en équipes : coché, on peut blesser ses coéquipiers.",
+        "Keywords": "tir allie,friendly fire,equipe,dmflags",
+        "FieldName": "tir_allie",
+        "InputType": "checkbox",
+        "ParamFieldName": "tir_allie",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "1",
+        "EnumValues": {
+            "False": "0",
+            "True": "1"
+        }
+    },
+    {
+        "DisplayName": "Votes des joueurs",
+        "Category": "Alien Arena:sports_esports",
+        "Subcategory": "Partie:flag:3",
+        "Description": "Coché : les joueurs peuvent lancer des votes (changer de carte, exclure un joueur...) avec la commande callvote (g_callvote).",
+        "Keywords": "vote,votes,callvote,g_callvote",
+        "FieldName": "g_callvote",
+        "InputType": "checkbox",
+        "ParamFieldName": "g_callvote",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "1",
+        "EnumValues": {
+            "False": "0",
+            "True": "1"
+        }
+    },
+    {
+        "DisplayName": "Vote de la carte suivante",
+        "Category": "Alien Arena:sports_esports",
+        "Subcategory": "Partie:flag:3",
+        "Description": "Coché : à la fin de chaque carte, les joueurs votent pour la suivante parmi les 4 cartes qui suivent dans la rotation (g_mapvote).",
+        "Keywords": "vote,carte,mapvote,g_mapvote,suivante",
+        "FieldName": "g_mapvote",
+        "InputType": "checkbox",
+        "ParamFieldName": "g_mapvote",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "0",
+        "EnumValues": {
+            "False": "0",
+            "True": "1"
+        }
+    },
+    {
+        "DisplayName": "Équilibrage des équipes",
+        "Category": "Alien Arena:sports_esports",
+        "Subcategory": "Partie:flag:3",
+        "Description": "Modes en équipes : coché, le jeu répartit lui-même les joueurs pour garder des équipes égales (g_autobalance).",
+        "Keywords": "equipes,equilibrage,autobalance,g_autobalance",
+        "FieldName": "g_autobalance",
+        "InputType": "checkbox",
+        "ParamFieldName": "g_autobalance",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "0",
+        "EnumValues": {
+            "False": "0",
+            "True": "1"
+        }
+    },
+    {
+        "DisplayName": "Variante d'armes",
+        "Category": "Alien Arena:sports_esports",
+        "Subcategory": "Variantes:tune:4",
+        "Description": "Une seule à la fois, comme dans le menu du jeu. Instagib : une arme qui tue d'un coup. Rocket Arena : lance-roquettes seulement. Insta/Rockets : les deux. Excessive : armes surpuissantes et joueurs plus rapides. Classes : chaque personnage a ses armes, comme en mode tactique. All Out Assault : toutes les 30 secondes, un jetpack à enfourcher remplace une arme sur la carte (3 au plus).",
+        "Keywords": "armes,instagib,rocket arena,excessive,classes,all out assault,mutateur",
+        "FieldName": "armes",
+        "InputType": "enum",
+        "ParamFieldName": "armes",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "normal",
+        "EnumValues": {
+            "normal": "Normale, toutes les armes",
+            "instagib": "Instagib",
+            "rocket_arena": "Rocket Arena",
+            "insta_rockets": "Insta/Rockets",
+            "excessive": "Excessive",
+            "classbased": "Classes (class based)",
+            "all_out_assault": "All Out Assault"
+        }
+    },
+    {
+        "DisplayName": "Vampire",
+        "Category": "Alien Arena:sports_esports",
+        "Subcategory": "Variantes:tune:4",
+        "Description": "Chaque élimination rend 20 points de santé, et la santé maximale est doublée (vampire).",
+        "Keywords": "vampire,mutateur",
+        "FieldName": "vampire",
+        "InputType": "checkbox",
+        "ParamFieldName": "vampire",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "0",
+        "EnumValues": {
+            "False": "0",
+            "True": "1"
+        }
+    },
+    {
+        "DisplayName": "Régénération",
+        "Category": "Alien Arena:sports_esports",
+        "Subcategory": "Variantes:tune:4",
+        "Description": "La santé remonte toute seule avec le temps (regeneration).",
+        "Keywords": "regeneration,regen,sante,mutateur",
+        "FieldName": "regeneration",
+        "InputType": "checkbox",
+        "ParamFieldName": "regeneration",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "0",
+        "EnumValues": {
+            "False": "0",
+            "True": "1"
+        }
+    },
+    {
+        "DisplayName": "Changement d'arme rapide",
+        "Category": "Alien Arena:sports_esports",
+        "Subcategory": "Variantes:tune:4",
+        "Description": "Passer d'une arme à l'autre sans attendre (quickweap).",
+        "Keywords": "arme,rapide,quickweap,mutateur",
+        "FieldName": "quickweap",
+        "InputType": "checkbox",
+        "ParamFieldName": "quickweap",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "0",
+        "EnumValues": {
+            "False": "0",
+            "True": "1"
+        }
+    },
+    {
+        "DisplayName": "Joueurs plus rapides",
+        "Category": "Alien Arena:sports_esports",
+        "Subcategory": "Variantes:tune:4",
+        "Description": "Vitesse de course maximale 450 au lieu de 300 (playerspeed, « speed » dans le menu du jeu).",
+        "Keywords": "vitesse,speed,playerspeed,mutateur",
+        "FieldName": "playerspeed",
+        "InputType": "checkbox",
+        "ParamFieldName": "playerspeed",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "0",
+        "EnumValues": {
+            "False": "0",
+            "True": "1"
+        }
+    },
+    {
+        "DisplayName": "Gravité réduite",
+        "Category": "Alien Arena:sports_esports",
+        "Subcategory": "Variantes:tune:4",
+        "Description": "On saute plus haut et on retombe moins vite (low_grav).",
+        "Keywords": "gravite,low grav,low_grav,mutateur",
+        "FieldName": "low_grav",
+        "InputType": "checkbox",
+        "ParamFieldName": "low_grav",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "0",
+        "EnumValues": {
+            "False": "0",
+            "True": "1"
+        }
+    },
+    {
+        "DisplayName": "Joute (sauts en l'air)",
+        "Category": "Alien Arena:sports_esports",
+        "Subcategory": "Variantes:tune:4",
+        "Description": "Les joueurs peuvent sauter encore une fois en plein vol (sv_joustmode, « jousting » dans le menu du jeu).",
+        "Keywords": "joute,joust,sv_joustmode,saut,mutateur",
+        "FieldName": "sv_joustmode",
+        "InputType": "checkbox",
+        "ParamFieldName": "sv_joustmode",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "0",
+        "EnumValues": {
+            "False": "0",
+            "True": "1"
+        }
+    },
+    {
+        "DisplayName": "Grappin",
+        "Category": "Alien Arena:sports_esports",
+        "Subcategory": "Variantes:tune:4",
+        "Description": "Chaque joueur a un grappin pour s'accrocher aux murs (grapple).",
+        "Keywords": "grappin,grapple,crochet,mutateur",
+        "FieldName": "grapple",
+        "InputType": "checkbox",
+        "ParamFieldName": "grapple",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "0",
+        "EnumValues": {
+            "False": "0",
+            "True": "1"
+        }
+    },
+    {
+        "DisplayName": "Anti-campeurs",
+        "Category": "Alien Arena:sports_esports",
+        "Subcategory": "Variantes:tune:4",
+        "Description": "Un joueur qui reste immobile trop longtemps est éliminé (anticamp). Les bots ne sont pas concernés.",
+        "Keywords": "camp,campeur,anticamp,mutateur",
+        "FieldName": "anticamp",
+        "InputType": "checkbox",
+        "ParamFieldName": "anticamp",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "0",
+        "EnumValues": {
+            "False": "0",
+            "True": "1"
+        }
+    },
+    {
+        "DisplayName": "Délai anti-campeurs",
+        "Category": "Alien Arena:sports_esports",
+        "Subcategory": "Variantes:tune:4",
+        "Description": "Avec l'anti-campeurs : secondes d'immobilité tolérées (camptime).",
+        "Keywords": "camp,camptime,delai",
+        "FieldName": "camptime",
+        "InputType": "number",
+        "ParamFieldName": "camptime",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "10",
+        "MinValue": "1",
+        "MaxValue": "120",
+        "Suffix": "secondes",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Les armes restent",
+        "Category": "Alien Arena:sports_esports",
+        "Subcategory": "Variantes:tune:4",
+        "Description": "Coché : une arme ramassée reste à sa place pour les autres joueurs (weapons stay).",
+        "Keywords": "armes,restent,weapons stay,dmflags",
+        "FieldName": "armes_restent",
+        "InputType": "checkbox",
+        "ParamFieldName": "armes_restent",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "0",
+        "EnumValues": {
+            "False": "0",
+            "True": "1"
+        }
+    },
+    {
+        "DisplayName": "Munitions infinies",
+        "Category": "Alien Arena:sports_esports",
+        "Subcategory": "Variantes:tune:4",
+        "Description": "Coché : les armes ne se vident jamais (infinite ammo).",
+        "Keywords": "munitions,infinies,ammo,dmflags",
+        "FieldName": "munitions_infinies",
+        "InputType": "checkbox",
+        "ParamFieldName": "munitions_infinies",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "0",
+        "EnumValues": {
+            "False": "0",
+            "True": "1"
+        }
+    },
+    {
+        "DisplayName": "Dégâts de chute",
+        "Category": "Alien Arena:sports_esports",
+        "Subcategory": "Variantes:tune:4",
+        "Description": "Coché : tomber de haut fait perdre de la santé (falling damage).",
+        "Keywords": "chute,degats,falling,dmflags",
+        "FieldName": "degats_chute",
+        "InputType": "checkbox",
+        "ParamFieldName": "degats_chute",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "1",
+        "EnumValues": {
+            "False": "0",
+            "True": "1"
+        }
+    },
+    {
+        "DisplayName": "Réapparition forcée",
+        "Category": "Alien Arena:sports_esports",
+        "Subcategory": "Variantes:tune:4",
+        "Description": "Coché : un joueur éliminé réapparaît tout seul, sans avoir à cliquer (force respawn).",
+        "Keywords": "reapparition,respawn,force,dmflags",
+        "FieldName": "reapparition_forcee",
+        "InputType": "checkbox",
+        "ParamFieldName": "reapparition_forcee",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "0",
+        "EnumValues": {
+            "False": "0",
+            "True": "1"
+        }
+    },
+    {
+        "DisplayName": "Bots",
+        "Category": "Alien Arena:sports_esports",
+        "Subcategory": "Bots:smart_toy:5",
+        "Description": "Coché : des bots (joueurs gérés par l'ordinateur) entrent dans la partie quand un joueur arrive. Chaque carte a sa liste de bots (data1/botinfo) ; les modes en équipes utilisent team.tmp. Ils restent jusqu'au changement de carte quand tout le monde est parti. Décoché : jamais de bots.",
+        "Keywords": "bots,ia,ordinateur,dmflags",
+        "FieldName": "bots",
+        "InputType": "checkbox",
+        "ParamFieldName": "bots",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "1",
+        "EnumValues": {
+            "False": "0",
+            "True": "1"
+        }
+    },
+    {
+        "DisplayName": "Compléter avec des bots jusqu'à",
+        "Category": "Alien Arena:sports_esports",
+        "Subcategory": "Bots:smart_toy:5",
+        "Description": "Les bots complètent la partie jusqu'à ce nombre de joueurs et s'en vont un par un quand de vrais joueurs arrivent (sv_botkickthreshold). 0 = tous les bots de la liste de la carte entrent et restent. En duel, toujours un seul bot.",
+        "Keywords": "bots,remplissage,botkickthreshold,sv_botkickthreshold",
+        "FieldName": "sv_botkickthreshold",
+        "InputType": "number",
+        "ParamFieldName": "sv_botkickthreshold",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "6",
+        "MinValue": "0",
+        "MaxValue": "32",
+        "Suffix": "joueurs",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Niveau des bots",
+        "Category": "Alien Arena:sports_esports",
+        "Subcategory": "Bots:smart_toy:5",
+        "Description": "Difficulté des bots (skill). Normal = chaque bot garde le niveau de sa fiche (data1/botinfo) ; Difficile = un niveau de plus ; Facile et Très difficile = tous au niveau le plus bas ou le plus haut.",
+        "Keywords": "niveau,difficulte,skill,bots",
+        "FieldName": "skill",
+        "InputType": "enum",
+        "ParamFieldName": "skill",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "1",
+        "EnumValues": {
+            "0": "Facile",
+            "1": "Normal (le niveau de chaque bot)",
+            "2": "Difficile (un niveau de plus)",
+            "3": "Très difficile"
+        }
+    },
+    {
+        "DisplayName": "Les bots parlent",
+        "Category": "Alien Arena:sports_esports",
+        "Subcategory": "Bots:smart_toy:5",
+        "Description": "Coché : les bots lancent des moqueries dans le chat quand ils éliminent ou sont éliminés (bot chat, en anglais). Décoché comme dans le server.cfg officiel.",
+        "Keywords": "bots,chat,moqueries,taunt,dmflags",
+        "FieldName": "bots_parlent",
+        "InputType": "checkbox",
+        "ParamFieldName": "bots_parlent",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "0",
+        "EnumValues": {
+            "False": "0",
+            "True": "1"
+        }
+    }
+]
