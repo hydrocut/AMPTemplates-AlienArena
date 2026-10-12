@@ -196,8 +196,8 @@ if meta.get('ConfigFile') != 'reglages-alienarena.txt' or "'reglages-alienarena.
 mu = par_param['maxclients']
 if mu['FieldName'] != '$MaxUsers' or mu['DefaultValue'] != cles.get('App.MaxUsers'):
     soucis.append('Joueurs maximum : $MaxUsers, défaut égal à App.MaxUsers')
-if par_param['hostname']['DefaultValue'] != '[FR] TeamKit - Alien Arena':
-    soucis.append('nom du serveur par défaut : [FR] TeamKit - Alien Arena')
+if par_param['hostname']['DefaultValue'] != '^4[^7FR^1] ^5TeamKit ^7- ^2Alien Arena':
+    soucis.append('nom du serveur par défaut : ^4[^7FR^1] ^5TeamKit ^7- ^2Alien Arena')
 d = par_param['motd']['DefaultValue']
 if 'teamkit.fr' not in d or 'discord.gg/EuAjGMYPHY' not in d or any(ord(ch) > 127 for ch in d):
     soucis.append('message d’accueil par défaut : teamkit.fr, le Discord, sans accent (le jeu n’affiche que l’ASCII)')
@@ -416,7 +416,7 @@ if PREPARER:
         soucis.append('valeurs par défaut : le lanceur refuse\n%s' % r['texte'])
     else:
         v = r['cfg']
-        if v.get('hostname') != '[FR] TeamKit - Alien Arena' or v.get('Admin') != 'TeamKit' \
+        if v.get('hostname') != '^4[^7FR^1] ^5TeamKit ^7- ^2Alien Arena' or v.get('Admin') != 'TeamKit' \
                 or v.get('website') != 'https://teamkit.fr' or v.get('Admin/drapeau') != 's' or v.get('website/drapeau') != 's':
             soucis.append('défauts nom / Admin / website : %r %r %r' % (v.get('hostname'), v.get('Admin'), v.get('website')))
         for p in ('timelimit', 'fraglimit', 'warmuptime', 'g_spawnprotect', 'camptime', 'sv_botkickthreshold', 'skill',

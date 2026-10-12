@@ -9,7 +9,7 @@
         "InputType": "text",
         "ParamFieldName": "hostname",
         "IncludeInCommandLine": false,
-        "DefaultValue": "[FR] TeamKit - Alien Arena",
+        "DefaultValue": "^4[^7FR^1] ^5TeamKit ^7- ^2Alien Arena",
         "EnumValues": {}
     },
     {

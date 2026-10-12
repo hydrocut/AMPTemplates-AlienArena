@@ -116,7 +116,7 @@ start-up lines (`Unknown command "unbindall"`, `Could not exec config.cfg`, terr
 | AMP setting | Game setting | Default |
 |---|---|---|
 | Port du jeu (Network tab) | `port` | 27910/UDP (game, master list and RCON) |
-| Nom du serveur | `hostname` | `[FR] TeamKit - Alien Arena` |
+| Nom du serveur | `hostname` | `^4[^7FR^1] ^5TeamKit ^7- ^2Alien Arena` (in colour: blue/white/red flag, cyan TeamKit, green Alien Arena) |
 | Message d'accueil | `motdfile` (centre print on join) | TeamKit welcome + teamkit.fr + Discord, `\|` = new line |
 | Joueurs maximum | `maxclients` (`$MaxUsers`, bots included) | 16 (as in `server.cfg`) |
 | Spectateurs maximum | `maxspectators` | 4 (game default) |
